@@ -1,4 +1,10 @@
+NAME : R.TRISHA
+
+REGISTER NUMBER : 212224100061 
+
+
 # FULL_ADDER_SUBTRACTOR
+
 
 Implementation-of-Full-Adder-and-Full-subtractor-circuit
 
@@ -38,18 +44,53 @@ Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
 
+
+![Screenshot 2025-03-29 160549](https://github.com/user-attachments/assets/b73d6211-086b-4d9a-85c4-bb24340800d4)
+
+![Screenshot 2025-03-29 160613](https://github.com/user-attachments/assets/a8ee6a8b-73e3-4745-bb0b-dbfad91beded)
+
 **Procedure**
 
-Write the detailed procedure here
+1.Type the program in Quartus software.
+
+2.Compile and run the program.
+
+3.Generate the RTL schematic and save the logic diagram.
+
+4.Create nodes for inputs and outputs to generate the timing diagram.
+
+5.For different input combinations generate the timing diagram.
 
 **Program:**
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+module ex3(a, b, c, sum, carry, diff, borrow);
 
+input a, b, c;
+
+output sum, carry, diff, borrow;
+
+xor g1(sum, a, b, c);  
+
+or  g2(carry, (a & b), (b & c), (c & a)); 
+
+xor g3(diff, a, b, c);   
+
+not g4(na, a);  
+
+and g5(w5, na, b); 
+
+and g6(w6, na, c); 
+
+and g7(w7, b, c);
+
+or  g8(borrow, w5, w6, w7);
+
+endmodule
 **RTL Schematic**
+![Screenshot 2025-03-29 155707](https://github.com/user-attachments/assets/773d9e5f-3f90-47f8-8dfc-5f73e61d6bdc)
 
 **Output Timing Waveform**
+![Screenshot 2025-03-29 155635](https://github.com/user-attachments/assets/9f38c907-a968-4edf-a4e0-0e895b76a832)
 
 **Result:**
 
