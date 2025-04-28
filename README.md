@@ -1,10 +1,4 @@
-NAME : R.TRISHA
-
-REGISTER NUMBER : 212224100061 
-
-
 # FULL_ADDER_SUBTRACTOR
-
 
 Implementation-of-Full-Adder-and-Full-subtractor-circuit
 
@@ -43,54 +37,62 @@ Diff = A ⊕ B ⊕ Bin
 Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
-
-
-![Screenshot 2025-03-29 160549](https://github.com/user-attachments/assets/b73d6211-086b-4d9a-85c4-bb24340800d4)
-
-![Screenshot 2025-03-29 160613](https://github.com/user-attachments/assets/a8ee6a8b-73e3-4745-bb0b-dbfad91beded)
+![WhatsApp Image 2025-03-19 at 11 20 39_150a3d9c](https://github.com/user-attachments/assets/090eb3a5-8cfe-47ff-93c2-bc1db8e0800e)
 
 **Procedure**
 
-1.Type the program in Quartus software.
-
-2.Compile and run the program.
-
-3.Generate the RTL schematic and save the logic diagram.
-
-4.Create nodes for inputs and outputs to generate the timing diagram.
-
-5.For different input combinations generate the timing diagram.
+Write the detailed procedure here
 
 **Program:**
+~~~
+module ex4(sum, cout, a, b, cin);
+    output sum;
+    output cout;
+    input a;
+    input b;
+    input cin;
 
-module ex3(a, b, c, sum, carry, diff, borrow);
+	 wire w1,w2,w3;
+	 assign w1=a^b;
+	 assign w2=a&b;
+	 assign w3=w1&cin;
+	 assign sum=w1^cin;
+	 assign cout=w2|w3;
+endmodule
 
-input a, b, c;
-
-output sum, carry, diff, borrow;
-
-xor g1(sum, a, b, c);  
-
-or  g2(carry, (a & b), (b & c), (c & a)); 
-
-xor g3(diff, a, b, c);   
-
-not g4(na, a);  
-
-and g5(w5, na, b); 
-
-and g6(w6, na, c); 
-
-and g7(w7, b, c);
-
-or  g8(borrow, w5, w6, w7);
+module ex44(df, bo, a, b, bin);
+    output df;
+    output bo;
+    input a;
+    input b;
+    input bin;
+	wire w1,w2,w3;
+	 assign w1=a^b;
+	 assign w2=(~a&b);
+	 assign w3=(~w1&bin);
+	 assign df=w1^bin;
+	 assign bo=w2|w3;
 
 endmodule
+~~~
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
+## Developed by:  selvaganesh R
+## RegisterNumber:  212223230200
+*/
+
 **RTL Schematic**
-![Screenshot 2025-03-29 155707](https://github.com/user-attachments/assets/773d9e5f-3f90-47f8-8dfc-5f73e61d6bdc)
+
+![Screenshot 2025-04-21 202226](https://github.com/user-attachments/assets/9d085187-9b9d-4769-9f30-26551a98024b)
+
+![Screenshot 2025-04-21 205515](https://github.com/user-attachments/assets/948c3e11-4870-46a6-b921-3e6776370d2b)
+
 
 **Output Timing Waveform**
-![Screenshot 2025-03-29 155635](https://github.com/user-attachments/assets/9f38c907-a968-4edf-a4e0-0e895b76a832)
+
+![Screenshot 2025-04-21 204055](https://github.com/user-attachments/assets/c27a3047-7ca1-42ca-b48a-11d67b584abd)
+
+![Screenshot 2025-04-21 205848](https://github.com/user-attachments/assets/8f77d0a2-8e12-4b94-8f81-66322b53e1de)
+
 
 **Result:**
 
